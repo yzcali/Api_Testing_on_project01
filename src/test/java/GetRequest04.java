@@ -34,7 +34,10 @@ public class GetRequest04 {
                 assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
-                body("employee_name",Matchers.equalTo("Tiger Nixon"));
+                body("data.id",Matchers.hasSize(24),
+                        "data.employee_name",Matchers.hasItem("Ashton Cox"),
+                        "data.employee_age",Matchers.hasItems("21","61","23"));
+
 
 
 
