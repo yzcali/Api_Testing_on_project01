@@ -16,6 +16,7 @@ public class GetRequest07 extends TestBase{
 
         Response response = given().
                             spec(spec01).
+                            when().
                             get("/booking?firstname=Eric");
 
         response.prettyPrint();
