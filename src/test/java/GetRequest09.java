@@ -46,16 +46,25 @@ public class GetRequest09 extends TestBase {
        */
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(json.getString("data[1].employee_name"), "Garrett Winters","name is not as expected");
-        softAssert.assertAll();
+        //softAssert.assertAll(); butun assertion larin en sonuna bir tane yazmak yeterli
 
 
         // hard assertion bu sekilde
         // assertEquals("name is not as expected","Garrett Winters",json.getString("data[1].employee_name"));
 
         // Herrod Chandler should be within the names of employees verify
-        SoftAssert softAssert1 = new SoftAssert();
-        softAssert1.assertTrue(json.getList("data.employee_name").contains("Herrod Chandler"));
-        softAssert1.assertAll();
+        softAssert.assertTrue(json.getList("data.employee_name").contains("Herrod Chandler"), "this name is not as expected");
+        //softAssert.assertAll();
+
+        // employee number should be 24 verify it
+
+        softAssert.assertEquals(json.getList("data.id").size(),24,"it is not as expected");
+        //softAssert.assertAll();
+
+        //7. employee's salary should be 137500 verify it
+        softAssert.assertEquals(json.getString("data[6].employee_salary"), "137500" ,"it is not as expected");
+        softAssert.assertAll();
+
 
     }
 
