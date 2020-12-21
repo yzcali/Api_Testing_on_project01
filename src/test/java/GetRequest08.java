@@ -28,11 +28,15 @@ public class GetRequest08 extends TestBase{
 
     @Test
     public void get01(){
+        // method icierisinde string yazilmasini istemezler get("/booking/5"); gibi
+        spec01.pathParam("bookingid", 5);
 
         Response response =given().
                 spec(spec01).
                 when().
-                get("/booking/5");
+                get("/booking/{bookingid}");
+
+
 
         response.prettyPrint();
 
