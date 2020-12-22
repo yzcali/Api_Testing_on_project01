@@ -7,6 +7,7 @@ public class TestBase {
 
     protected RequestSpecification spec01;
     protected RequestSpecification spec02;
+    protected RequestSpecification spec03;
 
 @Before
     public void setUP01() {
@@ -24,6 +25,13 @@ public class TestBase {
 
 
     }
+    @Before
+    public void setUP03(){
+        spec03= new RequestSpecBuilder().
+                setBaseUri("https://jsonplaceholder.typicode.com/todos").
+                build();
 
+
+    }
 
 }
