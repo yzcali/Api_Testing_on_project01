@@ -1,7 +1,7 @@
 import io.restassured.path.json.JsonPath;
 import org.junit.Test;
 import io.restassured.response.Response;
-import org.junit.Test;
+
 import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
