@@ -13,8 +13,7 @@ public class Bookingdates {
     private String checkin;
     @JsonProperty("checkout")
     private String checkout;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
 
     @JsonProperty("checkin")
     public String getCheckin() {
@@ -36,13 +35,28 @@ public class Bookingdates {
         this.checkout = checkout;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+
+
+    public Bookingdates(String checkin, String checkout) {
+        this.checkin = checkin;
+        this.checkout= checkout;
+    }
+    public Bookingdates() {
+
     }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
+    @Override
+    public String toString() {
+        return "Bookingdates[checkin=" + checkin + ", checkout=" + checkout + " ]";
     }
+
+
 }
+/*
+POJO da olmasi gerekenler :
+1. JSON da key oolanlar icin variable olusturun ve variable larin access modifier larini private yapin
+2.Her variable icin getter ve setter methodlari olusturun
+3. Parametersiz constructor olusturun icinde super() olmasin
+4. olusturdugunuz variable lari parametre kabul eden parametreli constructor olusturun icinde super() olmasin
+5. ToString() methodu olusturun .
+ */

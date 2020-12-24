@@ -19,8 +19,25 @@ public class Booking {
     private Bookingdates bookingdates;
     @JsonProperty("additionalneeds")
     private String additionalneeds;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    public Booking() {
+    }
+
+    @Override
+    public String toString() {
+        return "Booking [ firstname=" + firstname +", lastname=" + lastname + ", totalprice=" + totalprice + ", depositpaid=" + depositpaid + ", bookingdates=" + bookingdates + ", additionalneeds=" + additionalneeds +"]";
+
+    }
+
+    public Booking(String firstname, String lastname, Integer totalprice, Boolean depositpaid, Bookingdates bookingdates, String additionalneeds) {
+
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.totalprice = totalprice;
+        this.depositpaid = depositpaid;
+        this.bookingdates = bookingdates;
+        this.additionalneeds = additionalneeds;
+    }
 
     @JsonProperty("firstname")
     public String getFirstname() {
@@ -82,13 +99,5 @@ public class Booking {
         this.additionalneeds = additionalneeds;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 }
