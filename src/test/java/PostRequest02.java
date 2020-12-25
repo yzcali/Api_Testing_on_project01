@@ -76,13 +76,13 @@ public class PostRequest02 extends TestBase {
 
         JsonPath json =response.jsonPath();
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(json.getString("booking.firstname"),"Alex","it is not as expected");
-        softAssert.assertEquals(json.getString("booking.lastname"),"writer","it is not as expected");
-        softAssert.assertEquals(json.getInt("booking.totalprice"),147,"it is not as expected");
-        softAssert.assertEquals(json.getBoolean("booking.depositpaid"),true,"it is not as expected");
-        softAssert.assertEquals(json.getString("booking.bookingdates.checkin"),"2020-05-04","it is not as expected");
-        softAssert.assertEquals(json.getString("booking.bookingdates.checkout"),"2021-05-04","it is not as expected");
-        softAssert.assertEquals(json.getString("booking.additionalneeds"),"Wifi","it is not as expected");
+        softAssert.assertEquals(json.getString("booking.firstname"),jsonReqBody.get("firstname"),"it is not as expected");
+        softAssert.assertEquals(json.getString("booking.lastname"),jsonReqBody.get("lastname"),"it is not as expected");
+        softAssert.assertEquals(json.getInt("booking.totalprice"),jsonReqBody.get("totalprice"),"it is not as expected");
+        softAssert.assertEquals(json.getBoolean("booking.depositpaid"),jsonReqBody.get("depositpaid"),"it is not as expected");
+        softAssert.assertEquals(json.getString("booking.bookingdates.checkin"),jsonBookingDatesBody.get("checkin"),"it is not as expected");
+        softAssert.assertEquals(json.getString("booking.bookingdates.checkout"),jsonBookingDatesBody.get("checkout"),"it is not as expected");
+        softAssert.assertEquals(json.getString("booking.additionalneeds"),jsonReqBody.get("additionalneeds"),"it is not as expected");
         softAssert.assertAll();
 
 

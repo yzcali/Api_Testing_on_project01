@@ -16,7 +16,10 @@ public class TestBase {
     protected RequestSpecification spec01;
     protected RequestSpecification spec02;
     protected RequestSpecification spec03;
-
+    Map<String, Object> requestBodyMap = new HashMap<>();
+    Map<String, String> bookingDatesMap = new HashMap<>();
+    JSONObject jsonBookingDatesBody = new JSONObject();
+    JSONObject jsonReqBody = new JSONObject();
     @Before
     public void setUP01() {
         spec01 = new RequestSpecBuilder().
@@ -47,15 +50,15 @@ public class TestBase {
     protected Response createRequestBody() {
 
         // en ic taraftaki json icin obje olusturdum
-        JSONObject jsonBookingDatesBody = new JSONObject();
+
         jsonBookingDatesBody.put("checkin", "2020-05-04");
         jsonBookingDatesBody.put("checkout", "2021-05-04");
 
         // buyuk kisim icin  JSON obje
-        JSONObject jsonReqBody = new JSONObject();
-        jsonReqBody.put("firstname", "Alex");
-        jsonReqBody.put("lastname", "writer");
-        jsonReqBody.put("totalprice", 147);
+
+        jsonReqBody.put("firstname", "Alexson");
+        jsonReqBody.put("lastname", "Printerson");
+        jsonReqBody.put("totalprice", 155);
         jsonReqBody.put("depositpaid", true);
         jsonReqBody.put("bookingdates", jsonBookingDatesBody);
         // bookingdates in value sunu yazmamiz lazim ic tarafta json oldugu icin .
@@ -73,13 +76,13 @@ public class TestBase {
     }
 
     protected Response createReqBody() {
-        Map<String, String> bookingDatesMap = new HashMap<>();
+
         bookingDatesMap.put("checkin", "2020-05-04");
         bookingDatesMap.put("checkout", "2021-05-04");
 
-        Map<String, Object> requestBodyMap = new HashMap<>();
-        requestBodyMap.put("firstname", "Alex");
-        requestBodyMap.put("lastname", "writer");
+
+        requestBodyMap.put("firstname", "Alexand");
+        requestBodyMap.put("lastname", "Waterson");
         requestBodyMap.put("totalprice", 147);
         requestBodyMap.put("depositpaid", true);
         requestBodyMap.put("bookingdates", bookingDatesMap);
